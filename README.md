@@ -1,6 +1,6 @@
 ## HomeSeer HS4 Docker Image
 
-This image containerizes the HomeSeer HS4 home automation software. 
+This image containerizes the HomeSeer HS4 home automation software with additional installation of PollyC. 
 
 Current HomeSeer version: **HS4 4.2.16.0**
 
