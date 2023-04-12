@@ -22,9 +22,11 @@ RUN apt-get update && apt-get install -y \
     libnss-mdns \
     avahi-daemon avahi-utils mdns-scan \
     ffmpeg aha flite alsa-utils alsa-utils mono-devel \
+    git make \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && touch /DO_INSTALL
+    && touch /DO_INSTALL \
+    && touch /DO_POLLYC_INSTALL
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-amd64.tar.gz /tmp/
 RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
