@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv sh
+# Install PollyC if container is started for the first time
+if [ -e /DO_POLLYC_INSTALL ]
+then
+    echo "PollyC (re)install/update required at container first run. Installing at /HomeSeer..."
+    apt-get update
+    cd /var/tmp
+    git clone https://github.com/Timon0x31/PollyC.git
+    cd /var/tmp/PollyC
+    make install-boto3
+    make install-mpg123
+    make install-avconv
+    make install-flite
+    make install-scripts hs3root=/HomeSeer
+    make install-keys hs3root=/HomeSeer keyid= accesskey=
+    cd /HomeSeer
+    rm -rf /var/tmp/PollyC
+    rm -f /DO_POLLYC_INSTALL
+else
+    echo "PollyC already installed, not (re)installing/updating..."
+fi
