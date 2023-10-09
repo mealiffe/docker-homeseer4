@@ -5,7 +5,7 @@ then
     echo "PollyC (re)install/update required at container first run. Installing at /HomeSeer..."
     apt-get update
     cd /var/tmp
-    git clone https://github.com/Timon0x31/PollyC.git
+    git clone https://github.com/mealiffe/PollyC.git
     cd /var/tmp/PollyC
     make install-boto3
     make install-mpg123
