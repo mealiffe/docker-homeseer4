@@ -12,7 +12,7 @@ then
     make install-avconv
     make install-flite
     make install-scripts hs3root=/HomeSeer
-    make install-keys hs3root=/HomeSeer keyid=$POLLY_KEYID accesskey=$POLLY_ACCESSKEY
+    make install-keys hs3root=/HomeSeer keyid=$POLLY_KEYID accesskey=$POLLY_ACCESSKEY engine=$POLLY_ENGINE region=$POLLY_REGION voice=$POLLY_VOICE
     cd /HomeSeer
     rm -rf /var/tmp/PollyC
     rm -f /DO_POLLYC_INSTALL
