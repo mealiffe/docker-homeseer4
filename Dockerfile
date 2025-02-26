@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     ffmpeg aha flite alsa-utils alsa-utils mono-devel \
     git make \
     xfonts-base xfonts-75dpi \
+    sudo \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && touch /DO_INSTALL \
