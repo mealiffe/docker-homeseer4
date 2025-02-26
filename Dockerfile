@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     avahi-daemon avahi-utils mdns-scan \
     ffmpeg aha flite alsa-utils alsa-utils mono-devel \
     git make \
+    xfonts-base xfonts-75dpi \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && touch /DO_INSTALL \
