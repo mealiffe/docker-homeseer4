@@ -2,7 +2,7 @@ FROM mono:latest
 
 ENV S6_VERSION=v1.21.4.0
 ENV LANG=en_US.UTF-8
-ENV HOMESEER_VERSION=4_2_21_2
+ENV HOMESEER_VERSION=4_2_22_4
 
 
 RUN apt-get update && apt-get install -y \
@@ -32,6 +32,9 @@ ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION
 RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
     && tar -xzf /tmp/s6-overlay-amd64.tar.gz -C /usr ./bin \
     && rm -rf /tmp/* /var/tmp/*
+
+ADD https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb /tmp/
+RUN apt install -f /tmp/wkhtmltox_0.12.6-1.buster_amd64.deb
 
 COPY rootfs /
 
