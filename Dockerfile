@@ -24,7 +24,6 @@ RUN apt-get update && apt-get install -y \
     ffmpeg aha flite alsa-utils alsa-utils mono-devel \
     git make \
     xfonts-base xfonts-75dpi \
-    sudo \
     unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
@@ -38,6 +37,13 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
 
 ADD https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb /tmp/
 RUN apt install -f /tmp/wkhtmltox_0.12.6-1.buster_amd64.deb
+
+RUN if type sudo 2>/dev/null; then \ 
+     echo "The sudo command already exists... Skipping."; \
+    else \
+     echo -e "#!/bin/sh\n\${@}" > /usr/bin/sudo; \
+     chmod +x /usr/bin/sudo; \
+    fi
 
 COPY rootfs /
 
