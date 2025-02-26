@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
     git make \
     xfonts-base xfonts-75dpi \
     sudo \
+    unzip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && touch /DO_INSTALL \
